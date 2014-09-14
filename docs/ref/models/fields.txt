@@ -572,7 +572,11 @@ Has two optional arguments:
 
     .. versionchanged:: 1.7
 
-        ``upload_to`` was required in older versions of Django.
+        ``upload_to`` was required in older versions of Django. Note that
+        references to functions in this field option are serialized
+        in migrations, so the functions will need to be kept around for
+        as long as there is a migration referencing them. See the documentation
+        on :ref:`historical models <historical-models>`.
 
     A local filesystem path that will be appended to your :setting:`MEDIA_ROOT`
     setting to determine the value of the
@@ -1127,7 +1131,10 @@ define the details of how the relation works.
     .. versionchanged:: 1.7
 
         Previous versions of Django do not allow passing a callable as a value
-        for ``limit_choices_to``.
+        for ``limit_choices_to``. Note that references to functions in this
+        field option are serialized in migrations, so the functions will need
+        to be kept around for as long as there is a migration referencing them.
+        See the documentation on :ref:`historical models <historical-models>`.
 
     .. note::
 
